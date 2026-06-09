@@ -6,30 +6,21 @@ typedef int* IntPtr;
 
 int glo_var;
 
-void fuction(IntPtr *g, IntPtr *s, IntPtr *l, IntPtr *m) {
-    static int static_var;
-
-    int local_var = 8;
-
-    IntPtr mal_var = malloc(32);
-
-    *g = &glo_var;
-    *s = &static_var;
-    *l = &local_var;
-    *m = mal_var;
-}
-
 int main() {
-    IntPtr glo_addr, static_addr, local_addr, mal_addr;
+    static int static_var = 6;
+    int local_var = 8;
+    int *mal_var = malloc(64);
 
-    fuction(&glo_addr, &static_addr, &local_addr, &mal_addr);
+    int *glo_ptr = &glo_var;
+    int *static_ptr = &static_var;
+    int *local_ptr = &local_var;
 
-    printf("global: %p\n", glo_addr);
-    printf("static: %p\n", static_addr);
-    printf("local: %p\n", local_addr);
-    printf("malloc: %p\n", mal_addr);
 
-    free(mal_addr);
+    printf("Global variable address: %p\n", glo_ptr);
+    printf("Static variable address: %p\n", static_ptr);
+    printf("Local variable address: %p\n", local_ptr);
+    printf("Malloc variable address: %p\n", mal_var);
 
+    free(mal_var);
     return 0;
 }

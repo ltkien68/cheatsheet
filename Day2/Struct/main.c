@@ -2,9 +2,9 @@
 #include <stdint.h>
 
 typedef struct {
-    int x;
-    uint8_t y;
-    uint8_t z;
+    uint8_t x;
+    uint16_t y;
+    uint32_t z;
 } StructType;
 
 StructType p;
